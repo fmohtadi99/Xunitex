@@ -1,0 +1,1 @@
+global.xCoinCur = 0;
