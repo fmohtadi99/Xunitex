@@ -1,10 +1,10 @@
 import React from "react";
-import {Button} from '../Material';
+import { Button } from '../Material';
 
 const Auth = () => {
-    return(
+    return (
         <Button>Login</Button>
     )
 }
 
-export default Auth;
+export { Auth };
