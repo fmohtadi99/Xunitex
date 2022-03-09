@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text } from 'react-native';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { Button, TextInput } from '../Material';
 import { Settings, Themes } from '../../Resources/index';
 
@@ -8,10 +9,11 @@ let CurrentTheme = Settings.CurrentTheme;
 class Login extends Component {
 
     state = { email: '', password: '' };
-    
-    onLoginPress(){
-        const {email, password} = this.state;
-        
+
+    onLoginPress() {
+        const { email, password } = this.state;
+        signInWithEmailAndPassword(getAuth, email, password)
+             .catch(()=>{alert('Wrong Information')});
     }
 
     render() {
@@ -54,7 +56,7 @@ class Login extends Component {
                         textTransform: 'capitalize'
                     }}
                         style={{ marginBottom: 8 }}>Login</Button>
-                    <Button onPress={() => { alert(this.state.email) }} labelStyle={{
+                    <Button onPress={() => { alert(this.state.email + this.state.password) }} labelStyle={{
                         fontFamily: Themes.Fonts[CurrentTheme].Regular,
                         fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
                         textTransform: 'capitalize'
