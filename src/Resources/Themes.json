@@ -13,19 +13,19 @@
             "TextOn": "#fafafa"
         }
     },
-	"Fonts": {
-		"0":{
-			"Light":"Roboto-Light",
-			"Regular":"Roboto-Regular",
-			"Medium":"Roboto-Medium",
-			"Bold":"Roboto-Bold",
-			"CndLight":"CondensedRoboto-Light",
-			"CndRegular":"CondensedRoboto-Regular",
-			"CndBold":"CondensedRoboto-Bold",
-			"SizeSmall":"12",
-			"SizeRedular":"14",
-			"SizeBold":"18",
-			"SizeBlack":"24"
-		}
-	}
+    "Fonts": {
+        "0": {
+            "Light": "Roboto-Light",
+            "Regular": "Roboto-Regular",
+            "Medium": "Roboto-Medium",
+            "Bold": "Roboto-Bold",
+            "CndLight": "CondensedRoboto-Light",
+            "CndRegular": "CondensedRoboto-Regular",
+            "CndBold": "CondensedRoboto-Bold",
+            "SizeSmall": "12",
+            "SizeRedular": "14",
+            "SizeBold": "18",
+            "SizeBlack": "24"
+        }
+    }
 }
