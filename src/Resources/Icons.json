@@ -1,1 +1,63 @@
-
+{
+  "Left":{
+    "outlined":"",
+    "filled":""
+  },
+  "Right":{
+    "outlined":"",
+    "filled":""
+  },
+  
+  
+  
+  "Menu":{
+    "outlined":"",
+    "filled":""
+  },
+  "Alarm":{
+    "outlined":"",
+    "filled":""
+  },
+  
+  
+  
+  "Dashboard":{
+    "outlined":"",
+    "filled":""
+  },
+  "Coins":{
+    "outlined":"",
+    "filled":""
+  },
+  "Smart":{
+    "outlined":"",
+    "filled":""
+  },
+  "Wallet":{
+    "outlined":"",
+    "filled":""
+  },
+  "Profile":{
+    "outlined":"",
+    "filled":""
+  },
+  
+  
+  
+  "Clear":{
+    "outlined":"",
+    "filled":""
+  },
+  "Reveal":{
+    "outlined":"",
+    "filled":""
+  },
+  "User":{
+    "outlined":"",
+    "filled":""
+  },
+  "Password":{
+    "outlined":"",
+    "filled":""
+  }
+}
