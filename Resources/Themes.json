@@ -1,6 +1,7 @@
 {
     "Colors": {
         "0": {
+            "AppBackground":"#fafafa",
             "Primary": "#00838f",
             "PrimaryDark": "#005662",
             "PrimaryLight": "#4fb3bf",
@@ -22,10 +23,10 @@
             "CndLight": "CondensedRoboto-Light",
             "CndRegular": "CondensedRoboto-Regular",
             "CndBold": "CondensedRoboto-Bold",
-            "SizeSmall": "12",
-            "SizeRedular": "14",
-            "SizeBold": "18",
-            "SizeBlack": "24"
+            "SizeSmall": 12,
+            "SizeRegular": 16,
+            "SizeBold": 20,
+            "SizeBlack": 24
         }
     }
 }

@@ -1,9 +1,9 @@
 import React from "react";
-import { Button } from '../Material';
+import {Login} from "./Login";
 
 const Auth = () => {
     return (
-        <Button>Login</Button>
+        <Login />
     )
 }
 
