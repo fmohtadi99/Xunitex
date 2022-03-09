@@ -1,1 +1,31 @@
-
+{
+    "Colors": {
+        "0": {
+            "Primary": "#00838f",
+            "PrimaryDark": "#005662",
+            "PrimaryLight": "#4fb3bf",
+            "Secondary": "#455a64",
+            "SecondaryDark": "#1c313a",
+            "SecondaryLight": "#718792",
+            "TextPrimary": "#263238",
+            "TextSecondary": "#90a4ae",
+            "TextHighlight": "#eceff1",
+            "TextOn": "#fafafa"
+        }
+    },
+	"Fonts": {
+		"0":{
+			"Light":"Roboto-Light",
+			"Regular":"Roboto-Regular",
+			"Medium":"Roboto-Medium",
+			"Bold":"Roboto-Bold",
+			"CndLight":"CondensedRoboto-Light",
+			"CndRegular":"CondensedRoboto-Regular",
+			"CndBold":"CondensedRoboto-Bold",
+			"SizeSmall":"12",
+			"SizeRedular":"14",
+			"SizeBold":"18",
+			"SizeBlack":"24"
+		}
+	}
+}
