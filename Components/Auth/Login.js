@@ -62,7 +62,7 @@ class Login extends Component {
     }
 
     needHelp() {
-        
+
     }
 
     render() {
@@ -110,13 +110,13 @@ class Login extends Component {
                         fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
                         textTransform: 'capitalize'
                     }}
-                        style={{ marginBottom: 8 }}>Create new account</Button>
+                        style={{ marginBottom: 8, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Create new account</Button>
                     <Button onPress={this.needHelp()} labelStyle={{
                         fontFamily: Themes.Fonts[CurrentTheme].Regular,
                         fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
-                        textTransform: 'capitalize'
+                        textTransform: 'capitalize',
                     }}
-                        style={{ marginBottom: 8 }}>Need Help?</Button>
+                        style={{ marginBottom: 8, Color: Themes.Colors[CurrentTheme].Primary }}>Need Help?</Button>
                 </View>
                 <Snackbar style={{ backgroundColor: this.state.messageColor }} duration={3000} onDismiss={() => this.setState({ popUp: false })} visible={this.state.popUp}>{this.state.message}</Snackbar>
             </View>
