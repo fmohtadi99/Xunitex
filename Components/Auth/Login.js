@@ -93,14 +93,14 @@ class Login extends Component {
                         left={
                             <TextInput.Icon
                                 disabled
-                                color={Themes.Colors[CurrentTheme].Primary}
+                                color={Themes.Colors[CurrentTheme].PrimaryDark}
                                 icon="account"
                             />
                         }
                         right={
                             <TextInput.Icon
                                 color={Themes.Colors[CurrentTheme].PrimaryLight}
-                                icon="eye"
+                                icon="backspace"
                                 onPress={() =>
                                     this.setState({ email: '' })
                                 }
@@ -121,8 +121,8 @@ class Login extends Component {
                         left={
                             <TextInput.Icon
                                 disabled
-                                color={Themes.Colors[CurrentTheme].Primary}
-                                icon="vpn"/>
+                                color={Themes.Colors[CurrentTheme].PrimaryDark}
+                                icon="key"/>
                         }
                         right={
                             <TextInput.Icon
