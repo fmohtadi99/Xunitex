@@ -11,7 +11,26 @@
             "TextPrimary": "#263238",
             "TextSecondary": "#90a4ae",
             "TextHighlight": "#eceff1",
-            "TextOn": "#fafafa"
+            "TextOn": "#fafafa",
+            "Blue":"#1976D2",
+            "Green":"#388E3C",
+            "Red":"#D32F2F"
+        },
+        "1": {
+            "AppBackground":"red",
+            "Primary": "#00838f",
+            "PrimaryDark": "#005662",
+            "PrimaryLight": "#4fb3bf",
+            "Secondary": "#455a64",
+            "SecondaryDark": "#1c313a",
+            "SecondaryLight": "#718792",
+            "TextPrimary": "#263238",
+            "TextSecondary": "#90a4ae",
+            "TextHighlight": "#eceff1",
+            "TextOn": "#fafafa",
+            "Blue":"#1976D2",
+            "Green":"#388E3C",
+            "Red":"#D32F2F"
         }
     },
     "Fonts": {

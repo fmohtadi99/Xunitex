@@ -8,33 +8,61 @@ let CurrentTheme = Settings.CurrentTheme;
 
 class Login extends Component {
 
-    state = { email: '', password: '', passwordError: false, emailError: false, errorMessage: '', error: false, loading: false };
+    state = { email: '', password: '', passwordError: false, emailError: false, message: '', messageColor: Themes.Colors[CurrentTheme].Blue, popUp: false, loading: false };
+
 
     onLoginPress() {
-        this.setState({ loading: true });
         const { email, password } = this.state;
-        signInWithEmailAndPassword(getAuth(), email, password)
-            .catch((error) => {
-                this.setState({ error: true });
-                switch (error.code) {
-                    case "auth/wrong-email":
-                        this.setState({ passwordError: true, errorMessage: 'Invalid Email. Try again!' });
-                        break;
-                    case "auth/wrong-password":
-                        this.setState({ passwordError: true, errorMessage: 'Invalid Password. Try again!' });
-                        break;
-                }
+        if (email == '') {
+            this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Email field is empty!');
+            this.setState({ emailError: true });
+        } else if (password == '') {
+            this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Password field is empty!');
+            this.setState({ passwordError: true });
+        } else {
+            this.setState({ loading: true });
+            signInWithEmailAndPassword(getAuth(), email, password)
+                .then((userCredential) => {
+                    this.sendPopUp(Themes.Colors[CurrentTheme].Green, 'Logged in :)');
+                    this.setState({ loading: false })
+                })
+                .catch((error) => {
+                    this.setState({ popUp: true, messageColor: Themes.Colors[CurrentTheme].Red });
+                    switch (error.code) {
+                        case "auth/user-not-found":
+                            this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'No user found. Check your Email and try again!');
+                            break;
+                        case "auth/invalid-email":
+                            this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Invalid Email. Try again!');
+                            this.setState({ emailError: true });
+                            break;
+                        case "auth/wrong-password":
+                            this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Invalid Password. Try again!');
+                            this.setState({ passwordError: true });
+                            break;
+                        case "auth/too-many-requests":
+                            this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Too many requests. Come back later :(');
+                            this.setState({ passwordError: true });
+                            break;
+                    };
+                    this.setState({ loading: false });
+                    alert(error.code);
+                })
 
-            })
-            .then(() => this.setState({ loading: false }));
+        }
+
+    }
+
+    sendPopUp(color, message) {
+        this.setState({ popUp: true, messageColor: color, message });
     }
 
     clearError() {
-        this.setState({ passwordError: false, emailError: false, errorMessage: '' });
+        this.setState({ passwordError: false, emailError: false, popUp: false });
     }
 
     needHelp() {
-
+        
     }
 
     render() {
@@ -57,33 +85,32 @@ class Login extends Component {
                 </View>
 
                 <View style={Styles.SectionInput}>
-                    <TextInput label="Email" value={this.state.email} error={this.state.emailError} onChangeText={email => { this.setState({ email }); this.clearError() }} placeholder="user@domain.com" UnderlineColor="transparent" style={{
+                    <TextInput label="Email" value={this.state.email} underlineColor={Themes.Colors[CurrentTheme].Primary} activeUnderlineColor={Themes.Colors[CurrentTheme].Primary} error={this.state.emailError} onChangeText={email => { this.setState({ email }); this.clearError() }} placeholder="user@domain.com" UnderlineColor="transparent" style={{
                         width: "100%",
                         textAlign: 'center',
                         fontFamily: Themes.Fonts[CurrentTheme].Regular,
                         fontSize: Themes.Fonts[CurrentTheme].SizeBold,
                         marginBottom: 8,
                     }} />
-                    <TextInput label="Password" value={this.state.password} error={this.state.passwordError} secureTextEntry onChangeText={password => { this.setState({ password }); this.clearError() }} placeholder="••••" style={{
+                    <TextInput label="Password" value={this.state.password} underlineColor={Themes.Colors[CurrentTheme].Primary} activeUnderlineColor={Themes.Colors[CurrentTheme].Primary} error={this.state.passwordError} secureTextEntry onChangeText={password => { this.setState({ password }); this.clearError() }} placeholder="••••" style={{
                         width: "100%",
                         textAlign: 'center',
                         fontFamily: Themes.Fonts[CurrentTheme].Regular,
                         fontSize: Themes.Fonts[CurrentTheme].SizeBold,
                         marginBottom: 48
                     }} />
-                    <Text style={{ marginBottom: 12 }}>{this.state.errorMessage}</Text>
                     <Button loading={this.state.loading} mode="contained" onPress={this.onLoginPress.bind(this)} labelStyle={{
                         fontFamily: Themes.Fonts[CurrentTheme].Regular,
                         fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
                         textTransform: 'capitalize'
                     }}
-                        style={{ marginBottom: 8 }}>Login</Button>
+                        style={{ marginBottom: 8, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Login</Button>
                     <Button onPress={this.needHelp()} labelStyle={{
                         fontFamily: Themes.Fonts[CurrentTheme].Regular,
                         fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
                         textTransform: 'capitalize'
                     }}
-                        style={{ marginBottom: 8 }}>Need Help?</Button>
+                        style={{ marginBottom: 8 }}>Create new account</Button>
                     <Button onPress={this.needHelp()} labelStyle={{
                         fontFamily: Themes.Fonts[CurrentTheme].Regular,
                         fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
@@ -91,7 +118,7 @@ class Login extends Component {
                     }}
                         style={{ marginBottom: 8 }}>Need Help?</Button>
                 </View>
-                <Snackbar style={Styles.Snackbar} duration={5000} visible={this.state.error}>{this.state.errorMessage}</Snackbar>
+                <Snackbar style={{ backgroundColor: this.state.messageColor }} duration={3000} onDismiss={() => this.setState({ popUp: false })} visible={this.state.popUp}>{this.state.message}</Snackbar>
             </View>
         )
     }
@@ -112,17 +139,13 @@ const Styles = {
         alignItems: 'center'
     },
     SectionInput: {
-        width: "100%",
+        width: "80%",
         height: "100%",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
         paddingHorizontal: 18
-    },
-    Snackbar: {
-        flex: 1,
-        justifyContent: 'space-between'
     }
 }
 
