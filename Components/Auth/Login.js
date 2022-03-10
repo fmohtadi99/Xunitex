@@ -11,7 +11,7 @@ class Login extends Component {
 
     state = {
         email: '', password: '', secureTextEntry: true,
-        emailEnabled: true, passwordEnabled: true,
+        Enabled: true, eyeIcon:'eye-off',
         passwordError: false, emailError: false,
         message: '', messageColor: Themes.Colors[CurrentTheme].Blue,
         popUp: false, loading: false
@@ -19,6 +19,14 @@ class Login extends Component {
 
     sendPopUp(color, message) {
         this.setState({ popUp: true, messageColor: color, message });
+    }
+
+    checkEyeIcon(){
+        if (this.state.eyeIcon=='eye'){
+            this.setState({eyeIcon: 'eye-off'});
+        } else {
+            this.setState({eyeIcon: 'eye'});
+        }
     }
 
     constructor(props) {
@@ -36,7 +44,7 @@ class Login extends Component {
             this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Password field is empty!');
             this.setState({ passwordError: true });
         } else {
-            this.setState({ loading: true, emailEnabled: false, passwordEnabled: false });
+            this.setState({ loading: true, Enabled: false });
             signInWithEmailAndPassword(getAuth(), email, password)
                 .then(() => {
                     this.sendPopUp(Themes.Colors[CurrentTheme].Green, 'Logged in :)');
@@ -59,20 +67,26 @@ class Login extends Component {
                             this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Too many requests. Come back later :(');
                             this.setState({ passwordError: true });
                             break;
+                        case "auth/network-request-failed":
+                            this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Please check your internet connection!');
+                            break;
+                         case "auth/user-disabled":
+                            this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Sorry, your account has been disabled. Contact us!');
+                            break;
                     };
-                    this.setState({ loading: false, emailEnabled: true, passwordEnabled: true });
+                    this.setState({ loading: false, Enabled: true });
                 });
         }
     }
 
-    
+
 
     clearError() {
         this.setState({ passwordError: false, emailError: false, popUp: false });
     }
 
     onNeedHelpPress() {
-
+        
     }
 
     render() {
@@ -118,7 +132,7 @@ class Login extends Component {
                                 }
                             />
                         }
-                        editable={this.state.emailEnabled}
+                        disabled={ !this.state.Enabled }
                         value={this.state.email}
                         underlineColor={Themes.Colors[CurrentTheme].PrimaryLight}
                         activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
@@ -138,12 +152,13 @@ class Login extends Component {
                         right={
                             <TextInput.Icon
                                 color={Themes.Colors[CurrentTheme].PrimaryLight}
-                                icon="eye"
+                                icon={this.state.eyeIcon}
                                 onPress={() =>
-                                    this.setState({ secureTextEntry: !(this.state.secureTextEntry) })
+                                    {this.setState({ secureTextEntry: !(this.state.secureTextEntry) });
+                                    this.checkEyeIcon();}
                                 } />
                         }
-                        editable={this.state.passwordEnabled}
+                        disabled={ !this.state.Enabled }
                         value={this.state.password}
                         underlineColor={Themes.Colors[CurrentTheme].PrimaryLight}
                         activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
@@ -155,19 +170,21 @@ class Login extends Component {
                     <Button
                         loading={this.state.loading}
                         mode="contained"
+                        disabled={ !this.state.Enabled }
                         onPress={this.onLoginPress.bind(this)}
                         labelStyle={Styles.Login}
                         style={{ marginBottom: 16, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Login</Button>
 
                     <Button
                         onPress={this.onNeedHelpPress.bind(this)}
+                        disabled={ !this.state.Enabled }
                         color={Themes.Colors[CurrentTheme].Primary}
                         labelStyle={Styles.NeedHelp}>Need Help?</Button>
                 </View>
 
                 <Snackbar
                     style={{ backgroundColor: this.state.messageColor }}
-                    duration={3000}
+                    duration={5000}
                     onDismiss={() => this.setState({ popUp: false })}
                     visible={this.state.popUp}>{this.state.message}</Snackbar>
             </View>
