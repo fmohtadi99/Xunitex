@@ -3,6 +3,7 @@ import { View, Text, StatusBar } from 'react-native';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { Button, TextInput, Snackbar } from '../Material';
 import { Settings, Themes } from '../../Resources/index';
+import { SvgXml } from 'react-native-svg';
 
 let CurrentTheme = Settings.CurrentTheme;
 
@@ -16,9 +17,9 @@ class Login extends Component {
         popUp: false, loading: false
     };
 
-    constructor (props){
+    constructor(props) {
         super(props);
-        StatusBar.setTranslucent(true);
+        StatusBar.setBackgroundColor('transparent');
     }
 
     onLoginPress() {
@@ -77,19 +78,23 @@ class Login extends Component {
             <View style={Styles.View}>
                 <View style={Styles.SectionLabel}>
                     <Text style={{
-                        color: Themes.Colors[CurrentTheme].Secondary,
+                        color: Themes.Colors[CurrentTheme].TextHighlight,
                         fontSize: 48,
                         fontFamily: Themes.Fonts[CurrentTheme].Bold,
                         textAlign: 'center'
                     }}>Xunitex</Text>
 
                     <Text style={{
-                        color: Themes.Colors[CurrentTheme].SecondaryLight,
+                        color: Themes.Colors[CurrentTheme].TextHighlight,
                         fontSize: 18,
                         fontFamily: Themes.Fonts[CurrentTheme].Light,
                         textAlign: 'center',
                         marginTop: -8
                     }}>Light • Fast • Smart</Text>
+                </View>
+
+                <View style={Styles.SVG}>
+                    <SvgXml width={"100%"} height={"100%"} xml={'<svg width="360" height="19" viewBox="0 0 360 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.458488V4.41275C30.3828 12.8705 99.5438 18.778 180 18.778C260.456 18.778 329.617 12.8705 360 4.41277V0.458488H0Z" fill="#455A64"/></svg>'} />
                 </View>
 
                 <View style={Styles.SectionInput}>
@@ -172,17 +177,24 @@ const Styles = {
     View: {
         width: "100%",
         height: "100%",
-        display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center'
     },
     SectionLabel: {
         width: "100%",
-        padding: 56,
+        height: "30%",
+        backgroundColor: Themes.Colors[CurrentTheme].Secondary,
+        paddingTop: 56,
+        paddingBottom: 16,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         alignItems: 'center'
+    },
+    SVG: {
+        width: "100%",
+        height: 22,
+        marginTop: -2,
+        marginBottom: 48
     },
     SectionInput: {
         width: "80%",
@@ -196,14 +208,14 @@ const Styles = {
         width: "100%",
         backgroundColor: Themes.Colors[CurrentTheme].TextHighlight,
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
-        fontSize: Themes.Fonts[CurrentTheme].SizeBold,
+        fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
         marginBottom: 8
     },
     Password: {
         width: "100%",
         backgroundColor: Themes.Colors[CurrentTheme].TextHighlight,
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
-        fontSize: Themes.Fonts[CurrentTheme].SizeBold,
+        fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
         marginBottom: 48
     },
     Login: {
