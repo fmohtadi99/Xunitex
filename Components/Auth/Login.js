@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { Button, TextInput, Snackbar } from '../Material';
 import { Settings, Themes } from '../../Resources/index';
@@ -15,6 +15,11 @@ class Login extends Component {
         message: '', messageColor: Themes.Colors[CurrentTheme].Blue,
         popUp: false, loading: false
     };
+
+    constructor (props){
+        super(props);
+        StatusBar.setTranslucent(true);
+    }
 
     onLoginPress() {
         const { email, password } = this.state;
@@ -112,8 +117,7 @@ class Login extends Component {
                         activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
                         error={this.state.emailError}
                         onChangeText={email => { this.setState({ email }); this.clearError() }}
-                        placeholder="user@domain.com"
-                        UnderlineColor="transparent"
+                        placeholder="user@domain.com" placeholderTextColor={Themes.Colors[CurrentTheme].TextSecondary}
                         style={Styles.Email} />
 
                     <TextInput
@@ -122,7 +126,7 @@ class Login extends Component {
                             <TextInput.Icon
                                 disabled
                                 color={Themes.Colors[CurrentTheme].PrimaryDark}
-                                icon="key"/>
+                                icon="key" />
                         }
                         right={
                             <TextInput.Icon
@@ -130,7 +134,7 @@ class Login extends Component {
                                 icon="eye"
                                 onPress={() =>
                                     this.setState({ secureTextEntry: !(this.state.secureTextEntry) })
-                                }/>
+                                } />
                         }
                         editable={this.state.passwordEnabled}
                         value={this.state.password}
@@ -139,7 +143,7 @@ class Login extends Component {
                         error={this.state.passwordError}
                         secureTextEntry={this.state.secureTextEntry}
                         onChangeText={password => { this.setState({ password }); this.clearError() }}
-                        placeholder="••••" style={Styles.Password} />
+                        placeholder="••••••••" placeholderTextColor={Themes.Colors[CurrentTheme].TextSecondary} style={Styles.Password} />
 
                     <Button
                         loading={this.state.loading}
