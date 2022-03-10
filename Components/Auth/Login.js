@@ -9,7 +9,7 @@ let CurrentTheme = Settings.CurrentTheme;
 class Login extends Component {
 
     state = {
-        email: '', password: '',
+        email: '', password: '', secureTextEntry: true,
         emailEnabled: true, passwordEnabled: true,
         passwordError: false, emailError: false,
         message: '', messageColor: Themes.Colors[CurrentTheme].Blue,
@@ -90,9 +90,25 @@ class Login extends Component {
                 <View style={Styles.SectionInput}>
                     <TextInput
                         label="Email"
+                        left={
+                            <TextInput.Icon
+                                disabled
+                                color={Themes.Colors[CurrentTheme].Primary}
+                                icon="account"
+                            />
+                        }
+                        right={
+                            <TextInput.Icon
+                                color={Themes.Colors[CurrentTheme].PrimaryLight}
+                                icon="eye"
+                                onPress={() =>
+                                    this.setState({ email: '' })
+                                }
+                            />
+                        }
                         editable={this.state.emailEnabled}
                         value={this.state.email}
-                        underlineColor={Themes.Colors[CurrentTheme].Primary}
+                        underlineColor={Themes.Colors[CurrentTheme].PrimaryLight}
                         activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
                         error={this.state.emailError}
                         onChangeText={email => { this.setState({ email }); this.clearError() }}
@@ -102,11 +118,26 @@ class Login extends Component {
 
                     <TextInput
                         label="Password"
+                        left={
+                            <TextInput.Icon
+                                disabled
+                                color={Themes.Colors[CurrentTheme].Primary}
+                                icon="vpn"/>
+                        }
+                        right={
+                            <TextInput.Icon
+                                color={Themes.Colors[CurrentTheme].PrimaryLight}
+                                icon="eye"
+                                onPress={() =>
+                                    this.setState({ secureTextEntry: !(this.state.secureTextEntry) })
+                                }/>
+                        }
                         editable={this.state.passwordEnabled}
                         value={this.state.password}
-                        underlineColor={Themes.Colors[CurrentTheme].Primary}
+                        underlineColor={Themes.Colors[CurrentTheme].PrimaryLight}
                         activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
-                        error={this.state.passwordError} secureTextEntry
+                        error={this.state.passwordError}
+                        secureTextEntry={this.state.secureTextEntry}
                         onChangeText={password => { this.setState({ password }); this.clearError() }}
                         placeholder="••••" style={Styles.Password} />
 
@@ -160,14 +191,12 @@ const Styles = {
     Email: {
         width: "100%",
         backgroundColor: Themes.Colors[CurrentTheme].TextHighlight,
-        textAlign: 'center',
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
         fontSize: Themes.Fonts[CurrentTheme].SizeBold,
         marginBottom: 8
     },
     Password: {
         width: "100%",
-        textAlign: 'center',
         backgroundColor: Themes.Colors[CurrentTheme].TextHighlight,
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
         fontSize: Themes.Fonts[CurrentTheme].SizeBold,
