@@ -8,8 +8,12 @@ let CurrentTheme = Settings.CurrentTheme;
 
 class Login extends Component {
 
-    state = { email: '', password: '', passwordError: false, emailError: false, message: '', messageColor: Themes.Colors[CurrentTheme].Blue, popUp: false, loading: false };
-
+    state = {
+        email: '', password: '',
+        passwordError: false, emailError: false,
+        message: '', messageColor: Themes.Colors[CurrentTheme].Blue,
+        popUp: false, loading: false
+    };
 
     onLoginPress() {
         const { email, password } = this.state;
@@ -46,18 +50,15 @@ class Login extends Component {
                             break;
                     };
                     this.setState({ loading: false });
-                    alert(error.code);
-                })
-
+                });
         }
-
     }
-    
+
     onNeedHelpPress() {
 
     }
 
-    onCreateAccountPress(){
+    onCreateAccountPress() {
 
     }
 
@@ -83,6 +84,7 @@ class Login extends Component {
                         fontFamily: Themes.Fonts[CurrentTheme].Bold,
                         textAlign: 'center'
                     }}>Xunitex</Text>
+
                     <Text style={{
                         color: Themes.Colors[CurrentTheme].SecondaryLight,
                         fontSize: 18,
@@ -93,42 +95,49 @@ class Login extends Component {
                 </View>
 
                 <View style={Styles.SectionInput}>
-                    <TextInput label="Email" value={this.state.email} underlineColor={Themes.Colors[CurrentTheme].Primary} activeUnderlineColor={Themes.Colors[CurrentTheme].Primary} error={this.state.emailError} onChangeText={email => { this.setState({ email }); this.clearError() }} placeholder="user@domain.com" UnderlineColor="transparent" style={{
-                        width: "100%",
-                        textAlign: 'center',
-                        fontFamily: Themes.Fonts[CurrentTheme].Regular,
-                        fontSize: Themes.Fonts[CurrentTheme].SizeBold,
-                        marginBottom: 8,
-                    }} />
-                    <TextInput label="Password" value={this.state.password} underlineColor={Themes.Colors[CurrentTheme].Primary} activeUnderlineColor={Themes.Colors[CurrentTheme].Primary} error={this.state.passwordError} secureTextEntry onChangeText={password => { this.setState({ password }); this.clearError() }} placeholder="••••" style={{
-                        width: "100%",
-                        textAlign: 'center',
-                        fontFamily: Themes.Fonts[CurrentTheme].Regular,
-                        fontSize: Themes.Fonts[CurrentTheme].SizeBold,
-                        marginBottom: 48
-                    }} />
-                    <Button loading={this.state.loading} mode="contained" onPress={this.onLoginPress.bind(this)} labelStyle={{
-                        fontFamily: Themes.Fonts[CurrentTheme].Regular,
-                        fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
-                        textTransform: 'capitalize'
-                    }}
+                    <TextInput
+                        label="Email"
+                        value={this.state.email}
+                        underlineColor={Themes.Colors[CurrentTheme].Primary}
+                        activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
+                        error={this.state.emailError}
+                        onChangeText={email => { this.setState({ email }); this.clearError() }}
+                        placeholder="user@domain.com"
+                        UnderlineColor="transparent"
+                        style={Styles.Email} />
+
+                    <TextInput
+                        label="Password"
+                        value={this.state.password}
+                        underlineColor={Themes.Colors[CurrentTheme].Primary}
+                        ctiveUnderlineColor={Themes.Colors[CurrentTheme].Primary}
+                        error={this.state.passwordError} secureTextEntry
+                        onChangeText={password => { this.setState({ password }); this.clearError() }}
+                        placeholder="••••" style={Styles.Password} />
+
+                    <Button
+                        loading={this.state.loading}
+                        mode="contained"
+                        onPress={this.onLoginPress.bind(this)}
+                        labelStyle={Styles.Login}
                         style={{ marginBottom: 8, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Login</Button>
-                    <Button onPress={this.onCreateAccountPress.bind(this)} labelStyle={{
-                        fontFamily: Themes.Fonts[CurrentTheme].Regular,
-                        fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
-                        textTransform: 'capitalize',
-                        Color: Themes.Colors[CurrentTheme].Primary
-                    }}
+
+                    <Button
+                        onPress={this.onCreateAccountPress.bind(this)}
+                        labelStyle={Styles.Create}
                         style={{ marginBottom: 8 }}>Create new account</Button>
-                    <Button onPress={this.onNeedHelpPress.bind(this)} labelStyle={{
-                        fontFamily: Themes.Fonts[CurrentTheme].Regular,
-                        fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
-                        textTransform: 'capitalize',
-                        Color: Themes.Colors[CurrentTheme].Primary
-                    }}
+
+                    <Button
+                        onPress={this.onNeedHelpPress.bind(this)}
+                        labelStyle={Styles.NeedHelp}
                         style={{ marginBottom: 8 }}>Need Help?</Button>
                 </View>
-                <Snackbar style={{ backgroundColor: this.state.messageColor }} duration={3000} onDismiss={() => this.setState({ popUp: false })} visible={this.state.popUp}>{this.state.message}</Snackbar>
+
+                <Snackbar
+                    style={{ backgroundColor: this.state.messageColor }}
+                    duration={3000}
+                    onDismiss={() => this.setState({ popUp: false })}
+                    visible={this.state.popUp}>{this.state.message}</Snackbar>
             </View>
         )
     }
@@ -156,6 +165,37 @@ const Styles = {
         justifyContent: 'flex-start',
         alignItems: 'center',
         paddingHorizontal: 18
+    },
+    Email: {
+        width: "100%",
+        textAlign: 'center',
+        fontFamily: Themes.Fonts[CurrentTheme].Regular,
+        fontSize: Themes.Fonts[CurrentTheme].SizeBold,
+        marginBottom: 8
+    },
+    Password: {
+        width: "100%",
+        textAlign: 'center',
+        fontFamily: Themes.Fonts[CurrentTheme].Regular,
+        fontSize: Themes.Fonts[CurrentTheme].SizeBold,
+        marginBottom: 48
+    },
+    Login: {
+        fontFamily: Themes.Fonts[CurrentTheme].Regular,
+        fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
+        textTransform: 'capitalize'
+    },
+    Create: {
+        fontFamily: Themes.Fonts[CurrentTheme].Regular,
+        fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
+        textTransform: 'capitalize',
+        Color: Themes.Colors[CurrentTheme].Primary
+    },
+    NeedHelp: {
+        fontFamily: Themes.Fonts[CurrentTheme].Regular,
+        fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
+        textTransform: 'capitalize',
+        Color: Themes.Colors[CurrentTheme].Primary
     }
 }
 
