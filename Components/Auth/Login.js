@@ -10,6 +10,7 @@ class Login extends Component {
 
     state = {
         email: '', password: '',
+        emailEnabled: true, passwordEnabled: true,
         passwordError: false, emailError: false,
         message: '', messageColor: Themes.Colors[CurrentTheme].Blue,
         popUp: false, loading: false
@@ -24,7 +25,7 @@ class Login extends Component {
             this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Password field is empty!');
             this.setState({ passwordError: true });
         } else {
-            this.setState({ loading: true });
+            this.setState({ loading: true, emailEnabled: false, passwordEnabled: false });
             signInWithEmailAndPassword(getAuth(), email, password)
                 .then((userCredential) => {
                     this.sendPopUp(Themes.Colors[CurrentTheme].Green, 'Logged in :)');
@@ -49,17 +50,9 @@ class Login extends Component {
                             this.setState({ passwordError: true });
                             break;
                     };
-                    this.setState({ loading: false });
+                    this.setState({ loading: false, emailEnabled: true, passwordEnabled: true });
                 });
         }
-    }
-
-    onNeedHelpPress() {
-
-    }
-
-    onCreateAccountPress() {
-
     }
 
     sendPopUp(color, message) {
@@ -97,6 +90,7 @@ class Login extends Component {
                 <View style={Styles.SectionInput}>
                     <TextInput
                         label="Email"
+                        editable={this.state.emailEnabled}
                         value={this.state.email}
                         underlineColor={Themes.Colors[CurrentTheme].Primary}
                         activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
@@ -108,9 +102,10 @@ class Login extends Component {
 
                     <TextInput
                         label="Password"
+                        editable={this.state.passwordEnabled}
                         value={this.state.password}
                         underlineColor={Themes.Colors[CurrentTheme].Primary}
-                        ctiveUnderlineColor={Themes.Colors[CurrentTheme].Primary}
+                        activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
                         error={this.state.passwordError} secureTextEntry
                         onChangeText={password => { this.setState({ password }); this.clearError() }}
                         placeholder="••••" style={Styles.Password} />
@@ -120,17 +115,12 @@ class Login extends Component {
                         mode="contained"
                         onPress={this.onLoginPress.bind(this)}
                         labelStyle={Styles.Login}
-                        style={{ marginBottom: 8, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Login</Button>
-
-                    <Button
-                        onPress={this.onCreateAccountPress.bind(this)}
-                        labelStyle={Styles.Create}
-                        style={{ marginBottom: 8 }}>Create new account</Button>
+                        style={{ marginBottom: 16, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Login</Button>
 
                     <Button
                         onPress={this.onNeedHelpPress.bind(this)}
-                        labelStyle={Styles.NeedHelp}
-                        style={{ marginBottom: 8 }}>Need Help?</Button>
+                        color={Themes.Colors[CurrentTheme].Primary}
+                        labelStyle={Styles.NeedHelp}>Need Help?</Button>
                 </View>
 
                 <Snackbar
@@ -147,6 +137,8 @@ const Styles = {
     View: {
         width: "100%",
         height: "100%",
+        display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center'
     },
     SectionLabel: {
@@ -159,7 +151,6 @@ const Styles = {
     },
     SectionInput: {
         width: "80%",
-        height: "100%",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
@@ -168,6 +159,7 @@ const Styles = {
     },
     Email: {
         width: "100%",
+        backgroundColor: Themes.Colors[CurrentTheme].TextHighlight,
         textAlign: 'center',
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
         fontSize: Themes.Fonts[CurrentTheme].SizeBold,
@@ -176,6 +168,7 @@ const Styles = {
     Password: {
         width: "100%",
         textAlign: 'center',
+        backgroundColor: Themes.Colors[CurrentTheme].TextHighlight,
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
         fontSize: Themes.Fonts[CurrentTheme].SizeBold,
         marginBottom: 48
@@ -183,19 +176,15 @@ const Styles = {
     Login: {
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
         fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
-        textTransform: 'capitalize'
-    },
-    Create: {
-        fontFamily: Themes.Fonts[CurrentTheme].Regular,
-        fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
         textTransform: 'capitalize',
-        Color: Themes.Colors[CurrentTheme].Primary
+        letterSpacing: .5
     },
     NeedHelp: {
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
         fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
         textTransform: 'capitalize',
-        Color: Themes.Colors[CurrentTheme].Primary
+        color: Themes.Colors[CurrentTheme].Primary,
+        letterSpacing: .5
     }
 }
 
