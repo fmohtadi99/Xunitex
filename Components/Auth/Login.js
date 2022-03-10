@@ -17,10 +17,15 @@ class Login extends Component {
         popUp: false, loading: false
     };
 
+    sendPopUp(color, message) {
+        this.setState({ popUp: true, messageColor: color, message });
+    }
+
     constructor(props) {
         super(props);
         StatusBar.setBackgroundColor('transparent');
     }
+
 
     onLoginPress() {
         const { email, password } = this.state;
@@ -33,12 +38,11 @@ class Login extends Component {
         } else {
             this.setState({ loading: true, emailEnabled: false, passwordEnabled: false });
             signInWithEmailAndPassword(getAuth(), email, password)
-                .then((userCredential) => {
+                .then(() => {
                     this.sendPopUp(Themes.Colors[CurrentTheme].Green, 'Logged in :)');
                     this.setState({ loading: false })
                 })
                 .catch((error) => {
-                    this.setState({ popUp: true, messageColor: Themes.Colors[CurrentTheme].Red });
                     switch (error.code) {
                         case "auth/user-not-found":
                             this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'No user found. Check your Email and try again!');
@@ -61,9 +65,7 @@ class Login extends Component {
         }
     }
 
-    sendPopUp(color, message) {
-        this.setState({ popUp: true, messageColor: color, message });
-    }
+    
 
     clearError() {
         this.setState({ passwordError: false, emailError: false, popUp: false });
