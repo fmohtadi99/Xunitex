@@ -183,10 +183,7 @@ const Styles = {
         width: "100%",
         height: "30%",
         backgroundColor: Themes.Colors[CurrentTheme].Secondary,
-        paddingTop: 56,
         paddingBottom: 16,
-        display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'flex-end',
         alignItems: 'center'
     },
