@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { initializeApp } from "firebase/app";
 import { Auth } from './Components/Auth';
 import { Settings, Themes } from './Resources/index';
@@ -10,6 +10,8 @@ class App extends Component {
 
     constructor(props) {
         super(props);
+
+        StatusBar.setTranslucent(true);
 
         const firebaseConfig = {
             apiKey: "AIzaSyALSS2BFAvvY3VRr5aYxnflkz2zF7cbwoY",
