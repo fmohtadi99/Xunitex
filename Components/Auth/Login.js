@@ -52,6 +52,14 @@ class Login extends Component {
         }
 
     }
+    
+    onNeedHelpPress() {
+
+    }
+
+    onCreateAccountPress(){
+
+    }
 
     sendPopUp(color, message) {
         this.setState({ popUp: true, messageColor: color, message });
@@ -61,7 +69,7 @@ class Login extends Component {
         this.setState({ passwordError: false, emailError: false, popUp: false });
     }
 
-    needHelp() {
+    onNeedHelpPress() {
 
     }
 
@@ -70,13 +78,13 @@ class Login extends Component {
             <View style={Styles.View}>
                 <View style={Styles.SectionLabel}>
                     <Text style={{
-                        color: Themes.Colors[CurrentTheme].TextPrimary,
+                        color: Themes.Colors[CurrentTheme].Secondary,
                         fontSize: 48,
                         fontFamily: Themes.Fonts[CurrentTheme].Bold,
                         textAlign: 'center'
                     }}>Xunitex</Text>
                     <Text style={{
-                        color: Themes.Colors[CurrentTheme].TextSecondary,
+                        color: Themes.Colors[CurrentTheme].SecondaryLight,
                         fontSize: 18,
                         fontFamily: Themes.Fonts[CurrentTheme].Light,
                         textAlign: 'center',
@@ -105,18 +113,20 @@ class Login extends Component {
                         textTransform: 'capitalize'
                     }}
                         style={{ marginBottom: 8, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Login</Button>
-                    <Button onPress={this.needHelp()} labelStyle={{
-                        fontFamily: Themes.Fonts[CurrentTheme].Regular,
-                        fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
-                        textTransform: 'capitalize'
-                    }}
-                        style={{ marginBottom: 8, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Create new account</Button>
-                    <Button onPress={this.needHelp()} labelStyle={{
+                    <Button onPress={this.onCreateAccountPress.bind(this)} labelStyle={{
                         fontFamily: Themes.Fonts[CurrentTheme].Regular,
                         fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
                         textTransform: 'capitalize',
+                        Color: Themes.Colors[CurrentTheme].Primary
                     }}
-                        style={{ marginBottom: 8, Color: Themes.Colors[CurrentTheme].Primary }}>Need Help?</Button>
+                        style={{ marginBottom: 8 }}>Create new account</Button>
+                    <Button onPress={this.onNeedHelpPress.bind(this)} labelStyle={{
+                        fontFamily: Themes.Fonts[CurrentTheme].Regular,
+                        fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
+                        textTransform: 'capitalize',
+                        Color: Themes.Colors[CurrentTheme].Primary
+                    }}
+                        style={{ marginBottom: 8 }}>Need Help?</Button>
                 </View>
                 <Snackbar style={{ backgroundColor: this.state.messageColor }} duration={3000} onDismiss={() => this.setState({ popUp: false })} visible={this.state.popUp}>{this.state.message}</Snackbar>
             </View>
