@@ -1,14 +1,16 @@
-const UserLogin =  () =>{
-    alert('Logged In');
-}
-const UserLogout =  () =>{
-    alert('Logout');
-}
-const UserCheck =  () =>{
-    alert('Check');
-}
-const UserSignup =  () =>{
-    alert('Signup');
+class Firebase {
+    UserLogin() {
+        alert('Logged In');
+    }
+    UserLogout() {
+        alert('Logout');
+    }
+    UserCheck() {
+        alert('Check');
+    }
+    UserSignup() {
+        alert('Signup');
+    }
 }
 
-export {UserLogin, UserCheck, UserSignup, UserLogout};
+export default Firebase;
