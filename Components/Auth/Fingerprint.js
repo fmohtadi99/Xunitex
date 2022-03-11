@@ -1,11 +1,19 @@
 import React from "react";
-import {Text} from 'react-native';
+import { Button } from 'react-native';
+import fs from 'react-native-fs'
 
-const Fingerprint = () =>{
-    return(
-        <Text>Fingerprint</Text>
+const Fingerprint = () => {
+    return (
+        <Button onPress={() => {
+            fs.unlink(fs.MainBundlePath + './settings.json')
+                .then(() => alert('deleted'))
+                .catch((err) => {
+                    alert(err.message);
+                })}}
+
+            title={"Clear Data"} />
     )
 
 }
 
-export {Fingerprint};
+export { Fingerprint };
