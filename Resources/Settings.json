@@ -2,11 +2,11 @@
   "FirstLogin": "true",
   "HeaderTitle": "test",
   "CurrentTheme": 0,
-  "UserLock": "Passcode",
+  "UserLock": "Password",
   "Locks": {
-    "Fingerprint": false,
-    "Passcode": true,
-    "Pattern": false,
-    "Password": true
+    "Fingerprint": "Enabled",
+    "Pincode": "Enabled",
+    "Pattern": "Disabled",
+    "Passcode": "Active"
   }
 }
