@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { View, Text, StatusBar } from 'react-native';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { scale } from 'react-native-size-matters';
 import { Button, TextInput, Snackbar } from '../Material';
 import { Settings, Themes } from '../../Resources/index';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { SvgXml } from 'react-native-svg';
 
 let CurrentTheme = Settings.CurrentTheme;
@@ -11,7 +12,7 @@ class Login extends Component {
 
     state = {
         email: '', password: '', secureTextEntry: true,
-        Enabled: true, eyeIcon:'eye-off',
+        Enabled: true, eyeIcon: 'eye-off',
         passwordError: false, emailError: false,
         message: '', messageColor: Themes.Colors[CurrentTheme].Blue,
         popUp: false, loading: false
@@ -21,11 +22,11 @@ class Login extends Component {
         this.setState({ popUp: true, messageColor: color, message });
     }
 
-    checkEyeIcon(){
-        if (this.state.eyeIcon=='eye'){
-            this.setState({eyeIcon: 'eye-off'});
+    checkEyeIcon() {
+        if (this.state.eyeIcon == 'eye') {
+            this.setState({ eyeIcon: 'eye-off' });
         } else {
-            this.setState({eyeIcon: 'eye'});
+            this.setState({ eyeIcon: 'eye' });
         }
     }
 
@@ -70,7 +71,7 @@ class Login extends Component {
                         case "auth/network-request-failed":
                             this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Please check your internet connection!');
                             break;
-                         case "auth/user-disabled":
+                        case "auth/user-disabled":
                             this.sendPopUp(Themes.Colors[CurrentTheme].Red, 'Sorry, your account has been disabled. Contact us!');
                             break;
                     };
@@ -86,7 +87,7 @@ class Login extends Component {
     }
 
     onNeedHelpPress() {
-        
+
     }
 
     render() {
@@ -132,7 +133,7 @@ class Login extends Component {
                                 }
                             />
                         }
-                        disabled={ !this.state.Enabled }
+                        disabled={!this.state.Enabled}
                         value={this.state.email}
                         underlineColor={Themes.Colors[CurrentTheme].PrimaryLight}
                         activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
@@ -153,12 +154,13 @@ class Login extends Component {
                             <TextInput.Icon
                                 color={Themes.Colors[CurrentTheme].PrimaryLight}
                                 icon={this.state.eyeIcon}
-                                onPress={() =>
-                                    {this.setState({ secureTextEntry: !(this.state.secureTextEntry) });
-                                    this.checkEyeIcon();}
+                                onPress={() => {
+                                    this.setState({ secureTextEntry: !(this.state.secureTextEntry) });
+                                    this.checkEyeIcon();
+                                }
                                 } />
                         }
-                        disabled={ !this.state.Enabled }
+                        disabled={!this.state.Enabled}
                         value={this.state.password}
                         underlineColor={Themes.Colors[CurrentTheme].PrimaryLight}
                         activeUnderlineColor={Themes.Colors[CurrentTheme].Primary}
@@ -170,14 +172,14 @@ class Login extends Component {
                     <Button
                         loading={this.state.loading}
                         mode="contained"
-                        disabled={ !this.state.Enabled }
+                        disabled={!this.state.Enabled}
                         onPress={this.onLoginPress.bind(this)}
                         labelStyle={Styles.Login}
                         style={{ marginBottom: 16, backgroundColor: Themes.Colors[CurrentTheme].Primary }}>Login</Button>
 
                     <Button
                         onPress={this.onNeedHelpPress.bind(this)}
-                        disabled={ !this.state.Enabled }
+                        disabled={!this.state.Enabled}
                         color={Themes.Colors[CurrentTheme].Primary}
                         labelStyle={Styles.NeedHelp}>Need Help?</Button>
                 </View>
