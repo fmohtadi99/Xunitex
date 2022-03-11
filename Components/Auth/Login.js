@@ -204,7 +204,7 @@ const Styles = {
         width: "100%",
         height: "30%",
         backgroundColor: Themes.Colors[CurrentTheme].Secondary,
-        paddingBottom: 16,
+        paddingBottom: scale(16),
         justifyContent: 'flex-end',
         alignItems: 'center'
     },

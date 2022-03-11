@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { View, Text, StatusBar } from 'react-native';
 import { initializeApp } from "firebase/app";
-import { Auth } from './Components/Auth';
+import { Authentication } from './Components/Auth';
 import { Settings, Themes } from './Resources/index';
 
 let CurrentTheme = Settings.CurrentTheme;
 
 class App extends Component {
+
+    state = { loggedIn: true };
 
     constructor(props) {
         super(props);
@@ -30,7 +32,7 @@ class App extends Component {
     render() {
         return (
             <View style={Styles.View}>
-                <Auth />
+                <Authentication />
             </View>
         )
     }
