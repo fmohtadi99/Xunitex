@@ -1,5 +1,12 @@
 {
-  "FirstLogin":"true",
-  "HeaderTitle":"test",
-  "CurrentTheme":0
+  "FirstLogin": "true",
+  "HeaderTitle": "test",
+  "CurrentTheme": 0,
+  "UserLock": "Passcode",
+  "Locks": {
+    "Fingerprint": false,
+    "Passcode": true,
+    "Pattern": false,
+    "Password": true
+  }
 }
