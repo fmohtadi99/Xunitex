@@ -31,7 +31,7 @@ class Authentication extends Component {
     render() {
         return (
             <View>
-                {this.renderContent()}
+                <Unlock />
             </View>
         )
     }
