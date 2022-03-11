@@ -96,14 +96,14 @@ class Login extends Component {
                 <View style={Styles.SectionLabel}>
                     <Text style={{
                         color: Themes.Colors[CurrentTheme].TextHighlight,
-                        fontSize: 48,
+                        fontSize: scale(48),
                         fontFamily: Themes.Fonts[CurrentTheme].Bold,
                         textAlign: 'center'
                     }}>Xunitex</Text>
 
                     <Text style={{
                         color: Themes.Colors[CurrentTheme].TextHighlight,
-                        fontSize: 18,
+                        fontSize: scale(18),
                         fontFamily: Themes.Fonts[CurrentTheme].Light,
                         textAlign: 'center',
                         marginTop: -8
@@ -220,31 +220,31 @@ const Styles = {
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        paddingHorizontal: 18
+        paddingHorizontal: scale(18)
     },
     Email: {
         width: "100%",
         backgroundColor: Themes.Colors[CurrentTheme].TextHighlight,
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
-        fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
+        fontSize: scale(Themes.Fonts[CurrentTheme].SizeRegular),
         marginBottom: 8
     },
     Password: {
         width: "100%",
         backgroundColor: Themes.Colors[CurrentTheme].TextHighlight,
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
-        fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
+        fontSize: scale(Themes.Fonts[CurrentTheme].SizeRegular),
         marginBottom: 48
     },
     Login: {
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
-        fontSize: Themes.Fonts[CurrentTheme].SizeRegular,
+        fontSize: scale(Themes.Fonts[CurrentTheme].SizeRegular),
         textTransform: 'capitalize',
         letterSpacing: .5
     },
     NeedHelp: {
         fontFamily: Themes.Fonts[CurrentTheme].Regular,
-        fontSize: Themes.Fonts[CurrentTheme].SizeSmall,
+        fontSize: scale(Themes.Fonts[CurrentTheme].SizeSmall),
         textTransform: 'capitalize',
         color: Themes.Colors[CurrentTheme].Primary,
         letterSpacing: .5
