@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { View, Text, StatusBar } from 'react-native';
 import { scale } from 'react-native-size-matters';
-import { Button, IconButton, TextInput, Snackbar, TouchableRipple } from '../Material';
+import { Snackbar, TouchableRipple } from '../Material';
 import { Icons, Settings, Themes } from '../../Resources/index';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { SvgUri, SvgXml } from 'react-native-svg';
+import { Fingerprint, Pincode, Pattern, Passcode } from './';
 
 let CurrentTheme = Settings.CurrentTheme;
 let Locks = Settings.Locks;
@@ -20,32 +20,56 @@ class Unlock extends Component {
         popUp: false, loading: false
     };
 
+    constructor(props) {
+        super(props);
+        StatusBar.setBackgroundColor('transparent');
+    }
+
     debugClick() {
         alert('OK');
     }
 
     checkUserLocks(Locks, Icon, Todo) {
-        
+
         switch (Locks) {
             case "Enabled":
-                return (<TouchableRipple onPress={Todo} borderless style={{ margin:2 ,padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), borderColor:Themes.Colors[CurrentTheme].Primary, borderWidth:scale(1) }} >
+                return (<TouchableRipple onPress={Todo} borderless style={{ margin: 2, padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), borderColor: Themes.Colors[CurrentTheme].Primary, borderWidth: scale(1) }} >
                     <SvgUri fill={Themes.Colors[CurrentTheme].Primary} width={"100%"} height={"100%"} uri={Icon} />
                 </TouchableRipple>);
                 break;
             case "Disabled":
-                return (<TouchableRipple style={{ margin:2 ,padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), backgroundColor: Themes.Colors[CurrentTheme].TextHighlight }} >
+                return (<TouchableRipple style={{ margin: 2, padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), backgroundColor: Themes.Colors[CurrentTheme].TextHighlight }} >
                     <SvgUri fill={Themes.Colors[CurrentTheme].TextSecondary} width={"100%"} height={"100%"} uri={Icon} />
                 </TouchableRipple>);
                 break;
             case "Active":
-                return (<TouchableRipple style={{ margin:2 , padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), backgroundColor: Themes.Colors[CurrentTheme].Primary }} >
+                return (<TouchableRipple style={{ margin: 2, padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), backgroundColor: Themes.Colors[CurrentTheme].Primary }} >
                     <SvgUri fill={"#fff"} width={"100%"} height={"100%"} uri={Icon} />
                 </TouchableRipple>);
                 break;
         }
-
     }
 
+    loadUserLock(Lock) {
+        switch (Lock) {
+            case "Fingerprint":
+                return <Fingerprint />
+                break;
+            case "Pincode":
+                return <Pincode />
+                break;
+            case "Pattern":
+                return <Pattern />
+                break;
+            case "Passcode":
+                return <Passcode />
+                break;
+        }
+    }
+
+    setUserLock(Lock){
+
+    }
 
     render() {
         return (
@@ -72,12 +96,16 @@ class Unlock extends Component {
                 </View>
 
                 <View style={Styles.SectionLocks}>
-                    <View style={{ display: 'flex', flexDirection: 'row'}}>
-                        {this.checkUserLocks(Locks.Fingerprint, Icons.Fingerprint.filled)}
-                        {this.checkUserLocks(Locks.Pincode, Icons.Pincode.filled, ()=>alert())}
-                        {this.checkUserLocks(Locks.Pattern, Icons.Pattern.filled)}
-                        {this.checkUserLocks(Locks.Passcode, Icons.Passcode.filled)}
+                    <View style={{ display: 'flex', flexDirection: 'row' }}>
+                        {this.checkUserLocks(Locks.Fingerprint, Icons.Fingerprint.filled, () =>this.setUserLock("Fingerprint"))}
+                        {this.checkUserLocks(Locks.Pincode, Icons.Pincode.filled, () =>this.setUserLock("Pincode"))}
+                        {this.checkUserLocks(Locks.Pattern, Icons.Pattern.filled, () =>this.setUserLock("Pattern"))}
+                        {this.checkUserLocks(Locks.Passcode, Icons.Passcode.filled, () =>this.setUserLock("Passcode"))}
                     </View>
+                </View>
+
+                <View>
+                    {this.loadUserLock(this.state.Lock)}
                 </View>
 
                 <Snackbar

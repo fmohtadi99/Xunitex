@@ -2,7 +2,7 @@
   "FirstLogin": "true",
   "HeaderTitle": "test",
   "CurrentTheme": 0,
-  "UserLock": "Password",
+  "UserLock": "Passcode",
   "Locks": {
     "Fingerprint": "Enabled",
     "Pincode": "Enabled",

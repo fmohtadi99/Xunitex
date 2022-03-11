@@ -1,1 +1,11 @@
+import React from "react";
+import {Text} from 'react-native';
 
+const Fingerprint = () =>{
+    return(
+        <Text>Fingerprint</Text>
+    )
+
+}
+
+export {Fingerprint};
