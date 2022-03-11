@@ -69,6 +69,29 @@ class Unlock extends Component {
 
     setUserLock(Lock){
 
+        const fs = require('fs');
+        let SettingsFile = Settings;
+
+        switch (Lock) {
+            case "Fingerprint":
+                if (Locks.Pincode == "Active") {SettingsFile.UserLock = "Fingerprint"};
+                if (Locks.Pattern == "Active") {SettingsFile.UserLock = "Fingerprint"};
+                if (Locks.Passcode == "Active") {SettingsFile.UserLock = "Fingerprint"};
+                break;
+            case "Pincode":
+                return <Pincode />
+                break;
+            case "Pattern":
+                return <Pattern />
+                break;
+            case "Passcode":
+                return <Passcode />
+                break;
+        }
+
+        fs.writeFileSync('../../Resources/new.json', SettingsFile);
+        alert('done');
+        
     }
 
     render() {
