@@ -5,6 +5,7 @@ import { Button, TextInput, Snackbar } from '../Material';
 import { Settings, Themes } from '../../Resources/index';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { SvgXml } from 'react-native-svg';
+import fs from 'react-native-fs';
 
 let CurrentTheme = Settings.CurrentTheme;
 
@@ -49,7 +50,12 @@ class Login extends Component {
             signInWithEmailAndPassword(getAuth(), email, password)
                 .then(() => {
                     this.sendPopUp(Themes.Colors[CurrentTheme].Green, 'Logged in :)');
-                    this.setState({ loading: false })
+                    this.setState({ loading: false });
+                    fs.readFile(fs.DocumentDirectoryPath+'/Settings.json')
+                    .then((contents)=>{
+                        let SettingsFile = JSON.stringify(contents);
+                        SettingsFile.LoggedIn = true;
+                    });
                 })
                 .catch((error) => {
                     switch (error.code) {

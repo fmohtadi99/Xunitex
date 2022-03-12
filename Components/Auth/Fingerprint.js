@@ -5,7 +5,7 @@ import fs from 'react-native-fs'
 const Fingerprint = () => {
     return (
         <Button onPress={() => {
-            fs.unlink(fs.MainBundlePath + './settings.json')
+            fs.unlink(fs.DocumentDirectoryPath+'/settings.json')
                 .then(() => alert('deleted'))
                 .catch((err) => {
                     alert(err.message);

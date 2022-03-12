@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { View, Text } from 'react-native';
-import { Login } from "./Login";
-import { Unlock } from "./Unlock";
+import { Login, Unlock } from "./";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import fs from 'react-native-fs';
 
 class Authentication extends Component {
 
@@ -18,6 +18,11 @@ class Authentication extends Component {
                 this.setState({ userLoggedIn: false });
             };
         });
+
+        fs.readFile(fs.DocumentDirectoryPath+'/Settings.json')
+        .then((contents)=>{
+            this.setState({userLoggedIn: JSON.parse(contents).LoggedIn});
+        });
     }
 
     renderContent() {
@@ -26,12 +31,13 @@ class Authentication extends Component {
         } else {
             return <Login />
         }
+
     }
 
     render() {
         return (
             <View>
-                <Unlock />
+                {this.renderContent()}
             </View>
         )
     }

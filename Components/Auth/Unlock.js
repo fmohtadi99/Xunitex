@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import { View, Text, StatusBar } from 'react-native';
 import { scale } from 'react-native-size-matters';
-import { Snackbar, TouchableRipple } from '../Material';
+import { Snackbar, ToggleButton, TouchableRipple } from '../Material';
 import { Icons, Settings, Themes } from '../../Resources/index';
 import { SvgUri, SvgXml } from 'react-native-svg';
 import { Fingerprint, Pincode, Pattern, Passcode } from './';
 import fs from 'react-native-fs';
 
 let CurrentTheme = Settings.CurrentTheme;
-let Locks = Settings.Locks;
 
 class Unlock extends Component {
 
-    
+
 
     state = {
-        Lock: Settings.UserLock,
+        LockPasscode: '', LockPattern: '', LockPattern: '', LockFingerprint: '',
         email: '', password: '', secureTextEntry: true,
         Enabled: true, eyeIcon: 'eye-off',
         passwordError: false, emailError: false,
@@ -27,16 +26,16 @@ class Unlock extends Component {
         super(props);
         StatusBar.setBackgroundColor('transparent');
 
+        fs.readFile(fs.DocumentDirectoryPath + '/Settings.json')
+            .then(async (contents) => {
+                this.setState({
+                    LockFingerprint: JSON.parse(contents).Locks.Fingerprint,
+                    LockPasscode: JSON.parse(contents).Locks.Passcode,
+                    LockPattern: JSON.parse(contents).Locks.Pattern,
+                    LockPincode: JSON.parse(contents).Locks.Pincode
+                });
+            })
 
-        fs.readFile(fs.MainBundlePath+'/settings.json')
-        .then((contents)=>{
-            this.setState({Lock : JSON.parse(contents).UserLock});
-        })
-
-        
-
-        this.loadUserLock(this.state.Lock);
-        
     }
 
     debugClick() {
@@ -51,14 +50,16 @@ class Unlock extends Component {
                     <SvgUri fill={Themes.Colors[CurrentTheme].Primary} width={"100%"} height={"100%"} uri={Icon} />
                 </TouchableRipple>);
                 break;
-            case "Disabled":
-                return (<TouchableRipple style={{ margin: 2, padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), backgroundColor: Themes.Colors[CurrentTheme].TextHighlight }} >
-                    <SvgUri fill={Themes.Colors[CurrentTheme].TextSecondary} width={"100%"} height={"100%"} uri={Icon} />
-                </TouchableRipple>);
-                break;
+
             case "Active":
                 return (<TouchableRipple style={{ margin: 2, padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), backgroundColor: Themes.Colors[CurrentTheme].Primary }} >
-                    <SvgUri fill={"#fff"} width={"100%"} height={"100%"} uri={Icon} />
+                    <SvgUri fill={Themes.Colors[CurrentTheme].TextHighlight} width={"100%"} height={"100%"} uri={Icon} />
+                </TouchableRipple>);
+                break;
+
+            default:
+                return (<TouchableRipple style={{ margin: 2, padding: scale(5), width: scale(28), height: scale(28), borderRadius: scale(18), backgroundColor: Themes.Colors[CurrentTheme].TextHighlight }} >
+                    <SvgUri fill={Themes.Colors[CurrentTheme].TextSecondary} width={"100%"} height={"100%"} uri={Icon} />
                 </TouchableRipple>);
                 break;
         }
@@ -82,41 +83,40 @@ class Unlock extends Component {
     }
 
     setUserLock(Lock) {
-        this.setState({Lock});
+        this.setState({ Lock });
+        Settings.UserLock = Lock;
 
         switch (Lock) {
-            
+
             case "Fingerprint":
-                if (Locks.Pincode == "Active") {  Locks.Pincode = "Enabled" };
-                if (Locks.Pattern == "Active") { Locks.Pattern = "Enabled" };
-                if (Locks.Passcode == "Active") { Locks.Pincode = "Enabled" };
-                Settings.UserLock = "Fingerprint";
-                Locks.Fingerprint = "Active";
+                if (Settings.Locks.Pincode == "Active") { Settings.Locks.Pincode = "Enabled" };
+                if (Settings.Locks.Pattern == "Active") { Settings.Locks.Pattern = "Enabled" };
+                if (Settings.Locks.Passcode == "Active") { Settings.Locks.Passcode = "Enabled" };
+                Settings.Locks.Fingerprint = "Active";
                 break;
             case "Pincode":
-                if (Locks.Fingerprint == "Active") {  Locks.Fingerprint = "Enabled" };
-                if (Locks.Pattern == "Active") { Locks.Pattern = "Enabled" };
-                if (Locks.Passcode == "Active") { Locks.Passcode = "Enabled" };
-                Settings.UserLock = "Pincode";
-                Locks.Pincode = "Active";
+                if (Settings.Locks.Fingerprint == "Active") { Settings.Locks.Fingerprint = "Enabled" };
+                if (Settings.Locks.Pattern == "Active") { Settings.Locks.Pattern = "Enabled" };
+                if (Settings.Locks.Passcode == "Active") { Settings.Locks.Passcode = "Enabled" };
+                Settings.Locks.Pincode = "Active";
                 break;
             case "Pattern":
-                if (Locks.Pincode == "Active") { Locks.Pincode = "Enabled" };
-                if (Locks.Fingerprint == "Active") { Locks.Fingerprint = "Enabled" };
-                if (Locks.Passcode == "Active") { Locks.Passcode = "Enabled" };
-                Settings.UserLock = "Pattern";
-                Locks.Pattern = "Active";
+                if (Settings.Locks.Pincode == "Active") { Settings.Locks.Pincode = "Enabled" };
+                if (Settings.Locks.Fingerprint == "Active") { Settings.Locks.Fingerprint = "Enabled" };
+                if (Settings.Locks.Passcode == "Active") { Settings.Locks.Passcode = "Enabled" };
+                Settings.Locks.Pattern = "Active";
                 break;
             case "Passcode":
-                if (Locks.Pincode == "Active") { Locks.Pincode = "Enabled" };
-                if (Locks.Pattern == "Active") { Locks.Pattern = "Enabled" };
-                if (Locks.Fingerprint == "Active") { Locks.Fingerprint = "Enabled" };
-                Settings.UserLock = "Passcode";
-                Locks.Passcode = "Active";
+                if (Settings.Locks.Pincode == "Active") { Settings.Locks.Pincode = "Enabled" };
+                if (Settings.Locks.Pattern == "Active") { Settings.Locks.Pattern = "Enabled" };
+                if (Settings.Locks.Fingerprint == "Active") { Settings.Locks.Fingerprint = "Enabled" };
+                Settings.Locks.Passcode = "Active";
                 break;
         }
 
-        fs.writeFile(fs.MainBundlePath+'/settings.json', JSON.stringify(Settings,null,2));
+        fs.writeFile(fs.DocumentDirectoryPath + '/settings.json', JSON.stringify(Settings, null, 2))
+            .then(() => alert(JSON.stringify(Settings, null, 2)))
+            .catch((err) => alert(err.message));
 
 
 
@@ -150,10 +150,10 @@ class Unlock extends Component {
 
                 <View style={Styles.SectionLocks}>
                     <View style={{ display: 'flex', flexDirection: 'row' }}>
-                        {this.checkUserLocks(Locks.Fingerprint, Icons.Fingerprint.filled, () => this.setUserLock("Fingerprint"))}
-                        {this.checkUserLocks(Locks.Pincode, Icons.Pincode.filled, () => this.setUserLock("Pincode"))}
-                        {this.checkUserLocks(Locks.Pattern, Icons.Pattern.filled, () => this.setUserLock("Pattern"))}
-                        {this.checkUserLocks(Locks.Passcode, Icons.Passcode.filled, () => this.setUserLock("Passcode"))}
+                        {this.checkUserLocks(this.state.LockFingerprint, Icons.Fingerprint.filled, () => this.setUserLock("Fingerprint"))}
+                        {this.checkUserLocks(this.state.LockPincode, Icons.Pincode.filled, () => this.setUserLock("Pincode"))}
+                        {this.checkUserLocks(this.state.LockPattern, Icons.Pattern.filled, () => this.setUserLock("Pattern"))}
+                        {this.checkUserLocks(this.state.LockPasscode, Icons.Passcode.filled, () => this.setUserLock("Passcode"))}
                     </View>
                 </View>
 

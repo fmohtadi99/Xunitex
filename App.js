@@ -3,6 +3,7 @@ import { View, Text, StatusBar } from 'react-native';
 import { initializeApp } from "firebase/app";
 import { Authentication } from './Components/Auth';
 import { Settings, Themes } from './Resources/index';
+import fs from 'react-native-fs';
 
 let CurrentTheme = Settings.CurrentTheme;
 
@@ -26,6 +27,22 @@ class App extends Component {
         };
 
         const app = initializeApp(firebaseConfig);
+
+        this.checkSettings();
+
+    }
+
+    checkSettings() {
+        fs.exists(fs.DocumentDirectoryPath + '/Settings.json')
+            .then((res) => {
+                switch (res) {
+                    case true:
+                        break;
+                    case false:
+                        fs.writeFile(fs.DocumentDirectoryPath + '/Settings.json', JSON.stringify(Settings, null, 2));
+                        break;
+                }
+            })
 
     }
 
