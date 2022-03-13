@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { View, Text, StatusBar } from 'react-native';
 import { Welcome, Unlock } from "./";
 import fs from 'react-native-fs';
+import { Home } from "../Home/Home";
+
+let UserJSON = '';
 
 class Authentication extends Component {
 
@@ -14,11 +17,20 @@ class Authentication extends Component {
 
     nextLevel() {
         fs.exists(fs.DocumentDirectoryPath + '/User.ID')
-            .then((res) => { this.setState({ UserID: res }) });
+            .then((res) => { 
+                this.setState({ UserID: res });
+                fs.readFile(fs.DocumentDirectoryPath+'/User.ID')
+                .then((res)=>{UserJSON = JSON.parse(res)})
+             });
 
         switch (this.state.UserID) {
             case true:
-                return (<Unlock />);
+                if (UserJSON.Fingerprint || UserJSON.Pattern || UserJSON.Pincode || UserJSON.Passcode) {
+                    return (<Unlock />);
+                } else {
+                    return (<Home />);
+                }
+                
                 break;
             case false:
                 return (<Welcome />);

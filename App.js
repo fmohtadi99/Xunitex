@@ -3,6 +3,7 @@ import { View, Text, StatusBar } from 'react-native';
 import { initializeApp } from "firebase/app";
 import { Authentication } from './Components/Auth';
 import { Settings, Themes } from './Resources/index';
+import UserJSON from './Resources/User.json';
 import fs from 'react-native-fs';
 
 let CurrentTheme = Settings.CurrentTheme;
@@ -15,6 +16,7 @@ class App extends Component {
         super(props);
 
         StatusBar.setTranslucent(true);
+        
 
         const firebaseConfig = {
             apiKey: "AIzaSyALSS2BFAvvY3VRr5aYxnflkz2zF7cbwoY",

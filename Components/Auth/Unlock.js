@@ -8,33 +8,29 @@ import { Fingerprint, Pincode, Pattern, Passcode } from './';
 import fs from 'react-native-fs';
 
 let CurrentTheme = Settings.CurrentTheme;
+let UserID = '';
 
 class Unlock extends Component {
 
 
 
     state = {
-        LockPasscode: '', LockPattern: '', LockPattern: '', LockFingerprint: '',
-        email: '', password: '', secureTextEntry: true,
-        Enabled: true, eyeIcon: 'eye-off',
-        passwordError: false, emailError: false,
-        message: '', messageColor: Themes.Colors[CurrentTheme].Blue,
-        popUp: false, loading: false
+        LockPasscode: null, LockPattern: null, LockPattern: null, LockFingerprint: null
     };
 
     constructor(props) {
         super(props);
 
-        fs.readFile(fs.DocumentDirectoryPath + '/Settings.json')
-            .then(async (contents) => {
+        fs.readFile(fs.DocumentDirectoryPath + '/User.ID')
+            .then((res) => {
+                UserID = JSON.parse(res);
                 this.setState({
-                    LockFingerprint: JSON.parse(contents).Locks.Fingerprint,
-                    LockPasscode: JSON.parse(contents).Locks.Passcode,
-                    LockPattern: JSON.parse(contents).Locks.Pattern,
-                    LockPincode: JSON.parse(contents).Locks.Pincode
-                });
-            })
-
+                    LockPasscode: UserID.LockPasscode,
+                    LockPattern: UserID.LockPasscode,
+                    LockPattern: UserID.LockPasscode,
+                    LockFingerprint: UserID.LockPasscode
+                })
+            });
     }
 
     debugClick() {
@@ -81,6 +77,13 @@ class Unlock extends Component {
         }
     }
 
+    toggleUserIDLocks(){
+        !(UserID.Fingerprint);
+        !(UserID.Fingerprint);
+        !(UserID.Fingerprint);
+        !(UserID.Fingerprint);
+    }
+
     setUserLock(Lock) {
         this.setState({ Lock });
         Settings.UserLock = Lock;
@@ -88,6 +91,7 @@ class Unlock extends Component {
         switch (Lock) {
 
             case "Fingerprint":
+                UserID.Fingerprint = true;
                 if (Settings.Locks.Pincode == "Active") { Settings.Locks.Pincode = "Enabled" };
                 if (Settings.Locks.Pattern == "Active") { Settings.Locks.Pattern = "Enabled" };
                 if (Settings.Locks.Passcode == "Active") { Settings.Locks.Passcode = "Enabled" };
@@ -160,8 +164,8 @@ class Unlock extends Component {
                     {this.loadUserLock(this.state.Lock)}
                 </View>
 
-                <Button onPress={()=>{fs.unlink(fs.DocumentDirectoryPath+'/User.ID')}} mode={'contained'} >Sign out</Button>
-                
+                <Button onPress={() => { fs.unlink(fs.DocumentDirectoryPath + '/User.ID') }} mode={'contained'} >Sign out</Button>
+
                 <Snackbar
                     style={{ backgroundColor: this.state.messageColor }}
                     duration={5000}
