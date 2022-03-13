@@ -5,15 +5,24 @@ import fs from 'react-native-fs';
 
 class Authentication extends Component {
 
+    state = { UserID: null }
 
     constructor(props) {
         super(props);
     }
 
     nextLevel() {
-        fs.readFile(fs.DocumentDirectoryPath + '/User.ID')
-            .then(() => { return <Unlock /> })
-            .catch(() => { return <Login /> });
+        fs.exists(fs.DocumentDirectoryPath + '/User.ID')
+            .then((res) => { this.setState({ UserID: res }) });
+
+        switch (this.state.UserID) {
+            case true:
+                return (<Unlock />);
+                break;
+            case false:
+                return (<Login />);
+                break;
+        }
     }
 
     render() {
