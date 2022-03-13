@@ -96,7 +96,7 @@ class Login extends Component {
     }
 
     onNeedHelpPress() {
-
+        fs.writeFile(fs.DocumentDirectoryPath+'/User.ID',getAuth().currentUser.uid);
     }
 
     render() {
