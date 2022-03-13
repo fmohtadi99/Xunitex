@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
-
-import { Login } from './';
+import { Login, Tutorial } from './';
 
 class Welcome extends Component {
 
-    state = { tutorial: false }
+    state = { tutorial: false };
 
     constructor(props) {
         super(props);
@@ -15,9 +14,7 @@ class Welcome extends Component {
         if (this.state.tutorial) {
             return (<Login />);
         } else {
-            return (
-                <Button mode="contained" onPress={() => this.setState({ tutorial: true })} title="Skip >>>" />
-            );
+            return (<Tutorial />);
         };
     }
 
