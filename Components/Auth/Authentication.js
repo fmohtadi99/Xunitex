@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { View, Text } from 'react-native';
-import { Login, Unlock } from "./";
+import { View, Text, StatusBar } from 'react-native';
+import { Welcome, Unlock } from "./";
 import fs from 'react-native-fs';
 
 class Authentication extends Component {
@@ -9,6 +9,7 @@ class Authentication extends Component {
 
     constructor(props) {
         super(props);
+        StatusBar.setBackgroundColor('transparent');
     }
 
     nextLevel() {
@@ -20,7 +21,7 @@ class Authentication extends Component {
                 return (<Unlock />);
                 break;
             case false:
-                return (<Login />);
+                return (<Welcome />);
                 break;
         }
     }

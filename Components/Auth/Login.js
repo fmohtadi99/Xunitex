@@ -33,7 +33,7 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
-        StatusBar.setBackgroundColor('transparent');
+
     }
 
 
@@ -48,12 +48,11 @@ class Login extends Component {
         } else {
             this.setState({ loading: true, Enabled: false });
             signInWithEmailAndPassword(getAuth(), email, password)
-                .then((user) => {
+                .then((userCredential) => {
                     this.sendPopUp(Themes.Colors[CurrentTheme].Green, 'Logged in :)');
                     this.setState({ loading: false });
 
-                    alert(user);
-
+                    fs.writeFile(fs.DocumentDirectoryPath+'/User.ID',getAuth().currentUser.uid);
 
                     fs.readFile(fs.DocumentDirectoryPath+'/Settings.json')
                     .then((contents)=>{

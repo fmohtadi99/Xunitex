@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StatusBar } from 'react-native';
 import { scale } from 'react-native-size-matters';
-import { Snackbar, ToggleButton, TouchableRipple } from '../Material';
+import { Button, Snackbar, ToggleButton, TouchableRipple } from '../Material';
 import { Icons, Settings, Themes } from '../../Resources/index';
 import { SvgUri, SvgXml } from 'react-native-svg';
 import { Fingerprint, Pincode, Pattern, Passcode } from './';
@@ -24,7 +24,6 @@ class Unlock extends Component {
 
     constructor(props) {
         super(props);
-        StatusBar.setBackgroundColor('transparent');
 
         fs.readFile(fs.DocumentDirectoryPath + '/Settings.json')
             .then(async (contents) => {
@@ -161,6 +160,8 @@ class Unlock extends Component {
                     {this.loadUserLock(this.state.Lock)}
                 </View>
 
+                <Button onPress={()=>{fs.unlink(fs.DocumentDirectoryPath+'/User.ID')}} mode={'contained'} >Sign out</Button>
+                
                 <Snackbar
                     style={{ backgroundColor: this.state.messageColor }}
                     duration={5000}
