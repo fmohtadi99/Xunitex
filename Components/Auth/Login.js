@@ -48,9 +48,13 @@ class Login extends Component {
         } else {
             this.setState({ loading: true, Enabled: false });
             signInWithEmailAndPassword(getAuth(), email, password)
-                .then(() => {
+                .then((user) => {
                     this.sendPopUp(Themes.Colors[CurrentTheme].Green, 'Logged in :)');
                     this.setState({ loading: false });
+
+                    alert(user);
+
+
                     fs.readFile(fs.DocumentDirectoryPath+'/Settings.json')
                     .then((contents)=>{
                         let SettingsFile = JSON.stringify(contents);
