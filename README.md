@@ -38,8 +38,6 @@ The end of this project is to fetch financial market information, analyze them, 
 ### WEB
 [![WEB_STATUS](https://img.shields.io/badge/Preview-AA00FF?logo=googlechrome&logoColor=white)]()
 [![WEB_VERSION](https://img.shields.io/badge/Version-v1.0-2962FF)]()
-[![WEB_FRAMEWORK](https://img.shields.io/badge/Framework-React-2962FF?logo=react&logoColor=white)]()
-[![WEB_LANGUAGE](https://img.shields.io/badge/Language-JavaScript-2962FF?logo=javascript&logoColor=white)]()
 [![WEB](https://img.shields.io/badge/Open%20Website-lightgray)]()
 ___
 ### APP
@@ -48,8 +46,6 @@ ___
 
 [![ANDROID_STATUS](https://img.shields.io/badge/Developing-orange?logo=android&logoColor=white)]()
 [![ANDROID_VERSION](https://img.shields.io/badge/Version-v0.0-2962FF)]()
-[![ANDROID_FRAMEWORK](https://img.shields.io/badge/Framework-React--Native-2962FF?logo=react&logoColor=white)]()
-[![ANDROID_LANGUAGE](https://img.shields.io/badge/Language-JavaScript-2962FF?logo=javascript&logoColor=white)]()
 [![ANDROID](https://img.shields.io/badge/Download%20APK-lightgray)]()
 
 Minimum requirement:
@@ -61,8 +57,6 @@ N/A
 
 [![IOS_STATUS](https://img.shields.io/badge/Developing-orange?logo=apple&logoColor=white)]()
 [![IOS_VERSION](https://img.shields.io/badge/Version-v0.0-2962FF)]()
-[![IOS_FRAMEWORK](https://img.shields.io/badge/Framework-React--Native-2962FF?logo=react&logoColor=white)]()
-[![IOS_LANGUAGE](https://img.shields.io/badge/Language-JavaScript-2962FF?logo=javascript&logoColor=white)]()
 [![IOS](https://img.shields.io/badge/Download%20IPA-lightgray)]()
 
 Minimum requirement:
@@ -76,8 +70,6 @@ ___
 
 [![WINDOWS_STATUS](https://img.shields.io/badge/Developing-orange?logo=windows&logoColor=white)]()
 [![WINDOWS_VERSION](https://img.shields.io/badge/Version-v0.0-2962FF)]()
-[![WINDOWS_FRAMEWORK](https://img.shields.io/badge/Framework-.NetFramework-2962FF?logo=.net&logoColor=white)]()
-[![WINDOWS_LANGUAGE](https://img.shields.io/badge/Language-C++-2962FF?logo=c%2B%2B&logoColor=white)]()
 [![WINDOWS](https://img.shields.io/badge/Download%20EXE-lightgray)]()
 
 Minimum requirement:
@@ -89,8 +81,6 @@ N/A
 
 [![MacOS_STATUS](https://img.shields.io/badge/NEXT-FDD835?logo=macos&logoColor=white)]()
 [![MacOS_VERSION](https://img.shields.io/badge/Version-v0.0-2962FF)]()
-[![MacOS_FRAMEWORK](https://img.shields.io/badge/Framework-.NetFramework-2962FF?logo=.net&logoColor=white)]()
-[![MacOS_LANGUAGE](https://img.shields.io/badge/Language-C++-2962FF?logo=c%2B%2B&logoColor=white)]()
 [![MacOS](https://img.shields.io/badge/Download%20IPA-lightgray)]()
 
 Minimum requirement:
@@ -102,8 +92,6 @@ N/A
 
 [![LINUX_STATUS](https://img.shields.io/badge/NEXT-FDD835?logo=linux&logoColor=white)]()
 [![LINUX_VERSION](https://img.shields.io/badge/Version-v0.0-2962FF)]()
-[![LINUX_FRAMEWORK](https://img.shields.io/badge/Framework-.NetFramework-2962FF?logo=.net&logoColor=white)]()
-[![LINUX_LANGUAGE](https://img.shields.io/badge/Language-C++-2962FF?logo=c%2B%2B&logoColor=white)]()
 [![LINUX](https://img.shields.io/badge/Download%20TAR-lightgray)]()
 
 Minimum requirement:
@@ -116,8 +104,6 @@ Samsung **Galaxy Watch**
 
 [![GWATCH_STATUS](https://img.shields.io/badge/NEXT-FDD835?logo=android&logoColor=white)]()
 [![GWATCH_VERSION](https://img.shields.io/badge/Version-v0.0-2962FF)]()
-[![GWATCH_FRAMEWORK](https://img.shields.io/badge/Framework-.NetFramework-2962FF?logo=.net&logoColor=white)]()
-[![GWATCH_LANGUAGE](https://img.shields.io/badge/Language-C++-2962FF?logo=c%2B%2B&logoColor=white)]()
 [![GWATCH](https://img.shields.io/badge/Download%20...-lightgray)]()
 
 Minimum requirement:
@@ -129,8 +115,6 @@ Apple **Smart Watch**
 
 [![SWATCH_STATUS](https://img.shields.io/badge/NEXT-FDD835?logo=apple&logoColor=white)]()
 [![SWATCH_VERSION](https://img.shields.io/badge/Version-v0.0-2962FF)]()
-[![SWATCH_FRAMEWORK](https://img.shields.io/badge/Framework-.NetFramework-2962FF?logo=.net&logoColor=white)]()
-[![SWATCH_LANGUAGE](https://img.shields.io/badge/Language-C++-2962FF?logo=c%2B%2B&logoColor=white)]()
 [![SWATCH](https://img.shields.io/badge/Download%20...-lightgray)]()
 
 Minimum requirement:
