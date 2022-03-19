@@ -156,11 +156,13 @@ _FUTURE PLATFORMS: **Apple TV**, **Android TV**, **SAMSUNG Smart TV**, **Android
 
 ### Limited User
 
-Limited
+New users are limited to some features due to unauthorization. They cannot set their own [API tokens]() and use [Smart](#Smart). So what? They can still track prices. :)
                    
 ### Prime User
 
-Prime
+<td>
+<tr>Plan A</tr>
+</td>
 
 ### Prime+ User
                    
