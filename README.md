@@ -58,6 +58,12 @@ For more guides about **Smart**, [Click Here...](/Toturial.md)
 
 <br />
 
+<div align="center"><b>CAUTION</b></div>
+
+Although **Xunitex** has options as many as whatever you want, but **Withdraw** has been disabled for all users and it will be accessible for [Prime+ users](#Pricing).
+
+<br />
+
 ## 3. Platforms
 
 <table align="center">
