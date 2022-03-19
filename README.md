@@ -33,8 +33,23 @@ The end of this project is to fetch financial market information, analyze them, 
 
 **Xunitex** provide a GUI same as each exchange environment and there is no difference between **Xunitex** and [DCE](https://github.com/fmohtadi99/Xunitex/wiki/Cryptocurrency#digital-cryptocurrency-exchange-dce) platforms; But, there is actually a big **But**, it has uniformly structure to manage your funds from supported exchanges.
 
-We decided to start with [Nobitex](https://nobitex.ir/) and expand to others. Next planned exchanges: [Binance](https://www.binance.com/), [Coinbase Exchange](https://pro.coinbase.com/), [Kraken](https://www.kraken.com/), [KuCoin](https://www.kucoin.com/), [OKX](https://www.okx.com/) and [CoinEx](https://www.coinex.com/). Also, You can offer some other exchanges in [Discussions](/discussions/2)
+We decided to start with [Nobitex](https://nobitex.ir/) and expand to others. Next planned exchanges: [Binance](https://www.binance.com/), [Coinbase Exchange](https://pro.coinbase.com/), [Kraken](https://www.kraken.com/), [KuCoin](https://www.kucoin.com/), [OKX](https://www.okx.com/) and [CoinEx](https://www.coinex.com/). Also, You can offer some other exchanges in [Discussions](/discussions/2).
+
+Besides, there are three important factors that make **Xunitex** distinguished from other same platforms:
+
+### Light
+
+You might have divided your funds among some exchanges and wanted to work with all of them. Instead of installing client app for each of them, you can handle your needs in just one service. 
+
+### Fast
+
+Never lose any transaction with **FastAPI** and reach other traders. Testing on some exchanges, we observed faster order than native platform and Boom! Using lightweight library and frameworks, **Xunitex** loads real-time orderbooks as same as each exchange.
  
+### Smart
+
+The best feature of **Xunitex** is **Smart**. A new era of analyzing data and predicting. **Smart** (Xu.Smart) is a new technology based on **Python** that fetches historical data, thinks about trends, predicts next events and finally decide what to do. If you set **Smart** type to **Auto-Think**, it will automatically take action on your exchange account. Otherwise, it just send a notification on all registered platforms wheather online or offline.
+For more guides about **Smart**, [Click Here...](/Toturial.md)
+
 <br />
 
 ## 3. Platforms
