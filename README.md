@@ -160,9 +160,43 @@ New users are limited to some features due to unauthorization. They cannot set t
                    
 ### Prime User
 
-<td>
-<tr>Plan A</tr>
-</td>
+<table align="center">
+<thead>
+  <tr>
+    <th align="center"></th>
+    <th align="center">Plan A</th>
+    <th align="center">Plan B</th>
+    <th align="center">Plan C</th>
+    <th align="center">Plan D</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td align="center">Duration</td>
+    <td align="center">30-day</td>
+    <td align="center">60-day</td>
+    <td align="center">90-day</td>
+    <td align="center">120-day</td>
+  </tr>
+  <tr>
+    <td align="center">Price</td>
+    <td align="center">10 USDT</td>
+    <td align="center">18 USDT</td>
+    <td align="center">25 USDT</td>
+    <td align="center">50 USDT</td>
+  </tr>
+  <tr>
+    <td align="center">Warranty</td>
+    <td align="center">Bronze</td>
+    <td align="center">Silver</td>
+    <td align="center">Gold</td>
+    <td align="center">Diamond</td>
+  </tr>
+  <tr>
+    <td align="center" colspan="5">All cryptocurrencies available</td>
+  </tr>
+</tbody>
+</table>
 
 ### Prime+ User
                    
