@@ -160,6 +160,8 @@ New users are limited to some features due to unauthorization. They cannot set t
                    
 ### Prime User
 
+Choosing one of the following plan, limited users will have full access to **Xunitex** features. For user's fund safety Prime users are limited to use 30% of their balance for **Smart** and cannot **withdraw** from their wallets.
+                   
 <table align="center">
 <thead>
   <tr>
@@ -200,7 +202,9 @@ New users are limited to some features due to unauthorization. They cannot set t
 
 ### Prime+ User
                    
-Prime+
+Prime users can upgrade to Prime+ (No cost) after they got authenticated over online video call. They will access upto 100% **Smart** share and **Withdraw** from all wallets.
+
+These users cannot roll back to Prime until 3 months.
 
 
 
