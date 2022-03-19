@@ -25,7 +25,7 @@ The end of this project is to fetch financial market information, analyze them, 
 
 <br />
 
-- [X] Using **Xunitex** service, you must have read and accepted [conditions and guidelines](/agreement.md).
+- [X] Using **Xunitex** service, you must have read and accepted [conditions and guidelines](/Agreement.md).
 
 <br />   
 
