@@ -60,7 +60,7 @@ For more guides about **Smart**, [Click Here...](/Toturial.md)
 
 <div align="center"><b>CAUTION</b></div>
 
-Although **Xunitex** has options as many as whatever you want, but **Withdraw** has been disabled for all users and it will be accessible for [Prime+ users](#Pricing).
+Although **Xunitex** has options as many as whatever you want, but **Withdraw** has been disabled for all users and it will be accessible for [Prime+ users](#4-Pricing).
 
 <br />
 
@@ -151,4 +151,9 @@ We always publish **Beta** versions to test and debug for **6 months**. Although
 <br />
 
 _FUTURE PLATFORMS: **Apple TV**, **Android TV**, **SAMSUNG Smart TV**, **Android Auto**, **Apple CarPlay**_
+
+## 4. Pricing
+
+Pricing
+
 ___
