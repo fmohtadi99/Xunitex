@@ -1,4 +1,4 @@
-# Xunitex PROJECT: ![Offline Server](https://img.shields.io/website?down_color=red&down_message=Offline&label=xunitex.ir&logo=internetexplorer&logoColor=white&up_color=00C853&up_message=Ready&url=http%3A%2F%2F45.156.185.32%2F) [![Project Size](https://img.shields.io/badge/Size-450MB-blue?logo=github&logoColor=white)]()
+# Xunitex PROJECT: ![Offline Server](https://img.shields.io/website?down_color=red&down_message=Offline&label=xunitex.ir&logo=internetexplorer&logoColor=white&up_color=00C853&up_message=Ready&url=http%3A%2F%2F45.156.185.32%2F) ![GitHub repo size](https://img.shields.io/github/repo-size/fmohtadi99/xunitex?label=Repository%20Size&logo=github&logoColor=white)
 
 <div align="center"><code> If you are facing page issues (Static animations or inorder HTML format), press CTRL+F5 </code></div>
 
