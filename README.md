@@ -16,7 +16,7 @@
 
 ## 1. Introduction
                 
-The end of this project is to fetch financial market information, analyze them, predict next moves and finally think what to do. We have started with cryptocurrencies from **Binance** such as **BTC (Bitcoin)**, **ETH (Ethereum)**, **XRP (Ripple)**, **TRX (Tron)** and **Doge (Dogecoin)**. As _Fig. 01_ shows below, **Xunitex** gets detailed information from **Tappi.io** and takes action. Setting your own token, you may let **Xunitex** decide and automatically work with your exchange account or just send notification to your phone or defined [platforms](#2-Platforms).
+The end of this project is to fetch financial market information, analyze them, predict next moves and finally think what to do. We have started with cryptocurrencies from **Binance** such as **BTC (Bitcoin)**, **ETH (Ethereum)**, **XRP (Ripple)**, **TRX (Tron)** and **Doge (Dogecoin)**. As _Fig. 01_ shows below, **Xunitex** gets detailed information from **Tappi.io** and takes action. Setting your own token, you would let **Xunitex** decide and automatically work with your exchange account or just send notification to your phone or defined [platforms](#2-Platforms).
       
 <br />
 
