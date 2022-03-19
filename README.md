@@ -45,7 +45,7 @@ Besides, there are three important factors that make **Xunitex** distinguished f
 
 ### Light
 
-You might have divided your funds among some exchanges and wanted to work with all of them. Instead of installing client app for each of them, you can handle your needs in just one service. 
+You might have divided your funds among some exchanges and wanted to work with all of them. Instead of installing client app for each of them, you can handle your needs in just one service. Based on Cloud-Platform, you only install a GUI on your device and it connects to main source code on 24/7 strong server.
 
 ### Fast
 
