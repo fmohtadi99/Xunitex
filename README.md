@@ -31,7 +31,9 @@ The end of this project is to fetch financial market information, analyze them, 
 
 ## 2. Features
 
-**Xunitex** provide a GUI same as each exchange environment and there is no difference between **Xunitex** and [DCE](https://github.com/fmohtadi99/Xunitex/wiki/Cryptocurrency#digital-cryptocurrency-exchange-dce) platforms; But, there is actually a big **But**, it has uniformly structure to manage your funds from supported exchanges. We decided to start with [Nobitex](https://nobitex.ir/) and expand to others. Next planned exchanges: [Binance](https://www.binance.com/), [Coinbase Exchange](https://pro.coinbase.com/), [Kraken](https://www.kraken.com/), [KuCoin](https://www.kucoin.com/), [OKX](https://www.okx.com/) and [CoinEx](https://www.coinex.com/).
+**Xunitex** provide a GUI same as each exchange environment and there is no difference between **Xunitex** and [DCE](https://github.com/fmohtadi99/Xunitex/wiki/Cryptocurrency#digital-cryptocurrency-exchange-dce) platforms; But, there is actually a big **But**, it has uniformly structure to manage your funds from supported exchanges.
+
+We decided to start with [Nobitex](https://nobitex.ir/) and expand to others. Next planned exchanges: [Binance](https://www.binance.com/), [Coinbase Exchange](https://pro.coinbase.com/), [Kraken](https://www.kraken.com/), [KuCoin](https://www.kucoin.com/), [OKX](https://www.okx.com/) and [CoinEx](https://www.coinex.com/). Also, You can offer some other exchanges in [Discussions](/discussions/2)
  
 <br />
 
