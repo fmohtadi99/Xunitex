@@ -154,6 +154,18 @@ _FUTURE PLATFORMS: **Apple TV**, **Android TV**, **SAMSUNG Smart TV**, **Android
 
 ## 4. Pricing
 
-Pricing
+### Limited User
+
+Limited
+                   
+### Prime User
+
+Prime
+
+### Prime+ User
+                   
+Prime+
+
+
 
 ___
