@@ -22,7 +22,11 @@ The end of this project is to fetch financial market information, analyze them, 
 
 <div align="center"><img src="https://s23.picofile.com/file/8448479992/backendgif.gif"/></div>
 <div align="center"><i>Fig. 01: Xunitex Overview</i></div>
-      
+
+<br />
+
+- [X] Using **Xunitex** service, you must have read and accepted conditions and guidelines.
+
 <br />   
 
 ## 2. Features
