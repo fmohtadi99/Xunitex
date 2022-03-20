@@ -160,7 +160,7 @@ New users are limited to some features due to unauthorization. They cannot set t
                    
 ### Prime User
 
-Choosing one of the following plan, limited users will have full access to **Xunitex** features. For user's fund safety Prime users are limited to use 30% of their balance for **Smart** and cannot **withdraw** from their wallets.
+Choosing one of the following plan, limited users will have full access to **Xunitex** features. For user's fund safety, Prime users are limited to use 30% of their balance for **Smart** and cannot **withdraw** from their wallets.
                    
 <table align="center">
 <thead>
