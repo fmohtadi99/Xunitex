@@ -58,9 +58,9 @@ For more guides about **Smart**, [Click Here...](/Toturial.md)
 
 <br />
 
-<div align="center"><b>CAUTION</b></div>
-
-Although **Xunitex** has options as many as whatever you want, but **Withdraw** has been disabled for all users and it will be accessible for [Prime+ users](#4-Pricing).
+> **CAUTION**
+> 
+> Although **Xunitex** has options as many as whatever you want, but **Withdraw** has been disabled for all users and it will be accessible for [Prime+ users](#4-Pricing).
 
 <br />
 
@@ -124,13 +124,11 @@ Although **Xunitex** has options as many as whatever you want, but **Withdraw** 
 
 <br />
 
-<div align="center"><b>RECOMMANDED</b></div>
-
 Get in touch, update your app and use the latest version. Otherwise, if there is any conflict with your device or any other issues, you can download previous builds. Refer to **Previous Builds** folder in your desired platform.
 
-<div align="center"><b>CAUTION</b></div>
-
-We always publish **Beta** versions to test and debug for **6 months**. Although it may be the latest version but we are not sure whether it is stable or not. You are responsible to use **Beta** versions. These builds are accessible in **Beta Builds** folder in each platform.
+> CAUTION
+>
+> We always publish **Beta** versions to test and debug for **6 months**. Although it may be the latest version but we are not sure whether it is stable or not. You are responsible to use **Beta** versions. These builds are accessible in **Beta Builds** folder in each platform.
 
 <div align="center"><b>Minimum Requirements</b></div>
 
