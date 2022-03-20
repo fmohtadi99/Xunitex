@@ -188,7 +188,7 @@ Choosing one of the following plan, limited users will have full access to **Xun
     <td align="center">50 USDT</td>
   </tr>
   <tr>
-    <td align="center">Warranty</td>
+    <td align="center">Warranty ¹</td>
     <td align="center">Bronze</td>
     <td align="center">Silver</td>
     <td align="center">Gold</td>
@@ -199,6 +199,9 @@ Choosing one of the following plan, limited users will have full access to **Xun
   </tr>
 </tbody>
 </table>
+
+> ¹ Higher-priority users (Diamond) are set as alarmed tickets and will be solved within 1 hour. Proportionally, Lower-priority (Silver) tickets will be answered less than 24 hours. We respect all dear users, regardless of Prime or Limited; the above conditions is held only when support team is so busy.
+
 
 ### Prime+ User
                    
